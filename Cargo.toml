@@ -1,0 +1,16 @@
+[package]
+name = "hyperlight-wasm-sockets-example"
+edition = "2021"
+
+[dependencies]
+
+hyperlight-component-macro = { git = "https://github.com/hyperlight-dev/hyperlight", branch = "hyperlight-component-macro" }
+hyperlight-host = { git = "https://github.com/hyperlight-dev/hyperlight", branch = "hyperlight-component-macro", default-features = false, features = [ "kvm", "mshv2" ] }
+hyperlight-common = { git = "https://github.com/hyperlight-dev/hyperlight", branch = "hyperlight-component-macro" }
+hyperlight-wasm = { git = "https://github.com/hyperlight-dev/hyperlight-wasm", branch = "hyperlight-component-macro" }
+libc = "0.2.171"
+
+[[bin]]
+name = "echo"
+path = "src/main.rs"
+bench = false # see https://bheisler.github.io/criterion.rs/book/faq.html#cargo-bench-gives-unrecognized-option-errors-for-valid-command-line-options
