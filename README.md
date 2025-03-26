@@ -56,9 +56,22 @@ receive UDP packets on `127.0.0.1:8080`.
 
 In another shell:
 
+### Linux
+
 ```sh
 nc -u 127.0.0.1 8080
 ```
 
 When using interactively, due to line-buffering, you will likely need
 to send an entire line to `nc` before receiving a response.
+
+### Windows
+
+Windows does not have a native `nc` command, however we can use a PowerShell function to achieve the same result:
+
+```powershell
+# Create a PowerShell function to send UDP messages
+. ./scripts/Send-UDPMessage.ps1
+# Run the function to send a message
+Send-UDPMessage -IPAddress "127.0.0.1" -Port 8080
+```
